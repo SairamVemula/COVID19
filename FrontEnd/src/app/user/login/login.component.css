@@ -1,0 +1,56 @@
+form {
+  width: 600px;
+  padding: 20px;
+}
+mat-form-field {
+  width: 100%;
+  padding: 0 20px;
+}
+a {
+  font-size: 0.8rem;
+  padding: 5px 20px;
+}
+
+button {
+  width: 95%;
+  padding: 5px;
+}
+.external {
+  padding: 20px;
+}
+.exter {
+  margin: 10px auto 10px auto;
+}
+svg {
+  width: 20px;
+  height: 20px;
+  margin-right: 1.5rem;
+  fill: white;
+}
+div.title {
+  width: 100%;
+  text-align: center;
+}
+div.title h1 {
+  color: chocolate;
+  font-size: 3rem;
+  font-weight: bold;
+}
+div.title h4 {
+  color: teal;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 600px) {
+  form,
+  mat-form-field,
+  .external,
+  a {
+    padding: 0 10px;
+  }
+  form {
+    width: unset;
+    min-width: 380px;
+  }
+}

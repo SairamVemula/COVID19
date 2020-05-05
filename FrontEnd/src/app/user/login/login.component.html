@@ -1,0 +1,74 @@
+<!-- <p>login works!</p> -->
+<div
+  class="d-flex justify-content-center align-items-center"
+  style="width: 100vw; height: 100vh;"
+>
+  <div>
+    <div class="logo">
+      <div class="title"><h1>COVID 19</h1></div>
+      <div class="title"><h4>Login</h4></div>
+    </div>
+    <form class="example-form">
+      <div>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" placeholder="Enter Email" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" placeholder="Enter Password" />
+        </mat-form-field>
+        <div class="forgot">
+          <a mat-button color="primary" routerLink="/ForgetPassword"
+            >Forgot Password?</a
+          >
+        </div>
+      </div>
+      <div class="d-flex justify-content-center">
+        <button mat-raised-button type="submit" color="primary">Login</button>
+      </div>
+    </form>
+    <div class="d-flex justify-content-center">
+      <button mat-button type="button" color="primary" routerLink="/Register">
+        Register
+      </button>
+    </div>
+    <div class="d-flex horizontal">
+      <hr />
+    </div>
+    <div class="external">
+      <div class="d-flex justify-content-center exter">
+        <button
+          mat-raised-button
+          type="button"
+          color="primary"
+          (click)="signInWithGoogle()"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
+            <path
+              d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z"
+            />
+          </svg>
+          Login via Google
+        </button>
+      </div>
+      <div class="d-flex justify-content-center exter">
+        <button
+          mat-raised-button
+          type="button"
+          color="primary"
+          (click)="signInWithFB()"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+            <path
+              d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
+            />
+          </svg>
+          Login via Facebook
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

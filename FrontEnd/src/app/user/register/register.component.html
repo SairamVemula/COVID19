@@ -1,0 +1,52 @@
+<!-- <p>register works!</p> -->
+<div
+  class="d-flex justify-content-center align-items-center"
+  style="width: 100vw; height: 100vh;"
+>
+  <div>
+    <div class="logo">
+      <div class="title"><h1>COVID 19</h1></div>
+      <div class="title"><h4>Register</h4></div>
+    </div>
+    <form class="example-form">
+      <div>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput type="email" placeholder="Enter Name" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input matInput type="email" placeholder="Enter Email" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" placeholder="Enter Password" />
+        </mat-form-field>
+      </div>
+      <div>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Confirm Password</mat-label>
+          <input
+            matInput
+            type="password"
+            placeholder="Enter Confirm Password"
+          />
+        </mat-form-field>
+      </div>
+      <div class="d-flex justify-content-center">
+        <button mat-raised-button type="submit" color="primary">
+          Register
+        </button>
+      </div>
+    </form>
+    <div class="d-flex justify-content-center">
+      <button mat-button type="button" color="primary" routerLink="/Login">
+        Login
+      </button>
+    </div>
+  </div>
+</div>

@@ -5,6 +5,7 @@ const { User, validateLogin, validateRegister } = require("../models/user");
 const bcrypt = require("bcrypt");
 const _ = require("lodash");
 const auth = require("../middleware/auth");
+const { Location } = require("../models/location");
 
 //REGISTER
 router.post("/register", async (req, res) => {
@@ -33,6 +34,7 @@ router.post("/register", async (req, res) => {
 
   const salt = await bcrypt.genSalt(10);
   user.password = await bcrypt.hash(user.password, salt);
+
   await user.save();
   res.json({
     message: "Login Successfull",

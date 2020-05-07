@@ -9,7 +9,26 @@ const locationSchema = new mongoose.Schema({
     required: true,
   },
   location: {
-    type: mongoose.Schema.Types.Mixed,
+    type: {
+      type: String, // Don't do `{ location: { type: String } }`
+      enum: ["Point"], // 'location.type' must be 'Point'
+      required: true,
+      default: "Point",
+    },
+    coordinates: {
+      type: [Number],
+      required: true,
+      index: "2dsphere",
+    },
+  },
+  timestamp: {
+    type: Date,
     required: true,
+    default: new Date().getTime(),
   },
 });
+
+const Location = mongoose.model("UserLocation", locationSchema);
+
+exports.Location = Location;
+exports.locationSchema = locationSchema;

@@ -10,6 +10,7 @@ const app = express();
 
 const users = require("./routes/users");
 const images = require("./routes/images");
+const locations = require("./routes/locations");
 
 if (!config.get("mongodbServerLink")) {
   console.error("FATAL ERROR: mongodbServerLink is not defined");
@@ -34,6 +35,7 @@ app.use(bearerToken());
 
 app.use("/api/users", users);
 app.use("/api/images", images);
+app.use("/api/locations", locations);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));

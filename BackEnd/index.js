@@ -1,13 +1,15 @@
 const express = require("express");
 const Joi = require("joi");
 Joi.objectId = require("joi-objectid")(Joi);
-const users = require("./routes/users");
 const config = require("config");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const morgon = require("morgan");
 const bearerToken = require("express-bearer-token");
 const app = express();
+
+const users = require("./routes/users");
+const images = require("./routes/images");
 
 if (!config.get("mongodbServerLink")) {
   console.error("FATAL ERROR: mongodbServerLink is not defined");
@@ -28,9 +30,10 @@ mongoose
 app.use(cors());
 app.use(morgon("dev"));
 app.use(express.json());
-// app.use(bearerToken());
+app.use(bearerToken());
 
 app.use("/api/users", users);
+app.use("/api/images", images);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Listening on port ${port}...`));

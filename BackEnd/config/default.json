@@ -1,6 +1,5 @@
 {
   "jwtPrivateKey": "",
   "mongodbServerLink": "",
-  "googleClientId": "",
-  "googleSecret": ""
+  "serverUrl": ""
 }

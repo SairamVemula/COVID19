@@ -1,6 +1,5 @@
 {
   "jwtPrivateKey": "covid_jwtPrivateKey",
   "mongodbServerLink": "covid_mongodbServerLink",
-  "googleClientId": "covid_googleClientId",
-  "googleSecret": "covid_googleSecret"
+  "serverUrl": "covid_serverUrl"
 }

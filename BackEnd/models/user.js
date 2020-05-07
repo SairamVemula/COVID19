@@ -3,55 +3,56 @@ const Joi = require("joi");
 const jwt = require("jsonwebtoken");
 const config = require("config");
 
+// const schemaContact = new mongoose.Schema({
+//   id: {
+//     type: mongoose.Schema.Types.ObjectId,
+//     required: true,
+//   },
+//   timestamp: {
+//     type: Date,
+//   },
+// });
+// const Contact = mongoose.model("Contact", schemaContact);
+
 const schemaUser = new mongoose.Schema({
   method: {
     type: String,
     enum: ["local", "google", "facebook"],
+    default: "local",
     required: true,
   },
-  local: {
-    name: {
-      type: String,
-      maxlength: 255,
-    },
-    email: {
-      type: String,
-      maxlength: 255,
-    },
-    password: {
-      type: String,
-      maxlength: 255,
-    },
-    isDoctor: {
-      type: Boolean,
-    },
-    pic: {
-      type: String,
-    },
+  oAuthId: {
+    type: String,
   },
-  google: {
-    googleId: {
-      type: String,
-    },
-    name: {
-      type: String,
-    },
-    email: {
-      type: String,
-      maxlength: 255,
-    },
+  name: {
+    type: String,
+    maxlength: 255,
   },
-  facebook: {
-    fbId: {
-      type: String,
-    },
-    name: {
-      type: String,
-    },
-    email: {
-      type: String,
-      maxlength: 255,
-    },
+  email: {
+    type: String,
+    maxlength: 255,
+  },
+  password: {
+    type: String,
+    maxlength: 255,
+  },
+  picId: {
+    type: String,
+  },
+  photoUrl: {
+    type: String,
+  },
+  isDoctor: {
+    type: Boolean,
+  },
+  visited: {
+    type: [Object],
+  },
+  isInfected: {
+    type: String,
+    enum: ["infected", "cured", "no-infection"],
+    default: "no-infection",
+    required: true,
   },
 });
 
@@ -60,7 +61,7 @@ schemaUser.methods.generateAuthToken = function () {
     {
       sub: this.id,
       iat: new Date().getTime(),
-      exp: new Date().setDate(new Date() + 1),
+      // exp: new Date().setDate(new Date() + 1),
     },
     config.get("jwtPrivateKey")
   );
@@ -87,5 +88,7 @@ function validateLogin(user) {
 
 exports.schemaUser = schemaUser;
 exports.User = User;
+// exports.schemaContact = schemaContact;
+// exports.Contact = Contact;
 exports.validateRegister = validateRegister;
 exports.validateLogin = validateLogin;

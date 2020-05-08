@@ -3,15 +3,20 @@ const Joi = require("joi");
 const jwt = require("jsonwebtoken");
 const config = require("config");
 
-// const schemaContact = new mongoose.Schema({
-//   id: {
-//     type: mongoose.Schema.Types.ObjectId,
-//     required: true,
-//   },
-//   timestamp: {
-//     type: Date,
-//   },
-// });
+const schemaContact = new mongoose.Schema({
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+  },
+  timestamp: {
+    type: Date,
+    required: true,
+    default: new Date().getTime(),
+  },
+});
+
+const { locationSchema } = require("./location");
+
 // const Contact = mongoose.model("Contact", schemaContact);
 
 const schemaUser = new mongoose.Schema({
@@ -46,14 +51,15 @@ const schemaUser = new mongoose.Schema({
     type: Boolean,
   },
   visited: {
-    type: [Object],
+    type: [schemaContact],
   },
-  isInfected: {
+  infectionStatus: {
     type: String,
-    enum: ["infected", "cured", "no-infection"],
-    default: "no-infection",
+    enum: ["infected", "cured", "safe", "warning"],
+    default: "safe",
     required: true,
   },
+  geolocation: locationSchema,
 });
 
 schemaUser.methods.generateAuthToken = function () {

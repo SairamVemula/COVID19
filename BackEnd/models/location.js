@@ -4,10 +4,6 @@ const jwt = require("jsonwebtoken");
 const config = require("config");
 
 const locationSchema = new mongoose.Schema({
-  userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-  },
   location: {
     type: {
       type: String, // Don't do `{ location: { type: String } }`
@@ -24,7 +20,7 @@ const locationSchema = new mongoose.Schema({
   timestamp: {
     type: Date,
     required: true,
-    default: new Date().getTime(),
+    default: new Date().valueOf(),
   },
 });
 
